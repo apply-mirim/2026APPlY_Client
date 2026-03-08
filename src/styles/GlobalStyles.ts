@@ -12,6 +12,13 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
   }
 
   html {
@@ -21,11 +28,19 @@ const GlobalStyles = createGlobalStyle`
     cursor: none;
   }
 
+  #root {
+    min-height: 100vh;
+  }
+
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Wanted Sans Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #fff;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #FFFBFD;
+  }
+
+  #root {
+    font-family: 'Pretendard', sans-serif;
   }
 
   a {
@@ -34,12 +49,12 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    font-family: 'Wanted Sans Variable', sans-serif;
+    font-family: 'Pretendard', sans-serif;
   }
 
   p {
     margin: 0;
-    font-family: 'Wanted Sans Variable', sans-serif;
+    font-family: 'Pretendard', sans-serif;
   }
 
   ul, ol {
@@ -49,7 +64,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button, input, textarea {
-    font-family: 'Wanted Sans Variable', sans-serif;
+    font-family: 'Pretendard', sans-serif;
     border: none;
     outline: none;
   }
