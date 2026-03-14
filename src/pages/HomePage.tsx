@@ -199,10 +199,22 @@ const ProjectsSlogan = styled(motion.p)`
   font-family: 'Pretendard', sans-serif;
   margin-bottom: 0;
   max-width: 900px;
+  text-align: left;
+  align-self: flex-start;
+  white-space: pre-line;
+`;
+
+const ProjectsHeaderWrap = styled.div`
+  width: 100%;
+  max-width: 900px;
+  align-self: flex-start;
 `;
 
 const ProjectCtaWrap = styled(motion.div)`
   margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 `;
 
 const ProjectCtaOuter = styled.span`
@@ -223,9 +235,9 @@ const ProjectCtaButton = styled(Link)`
   height: 100%;
   box-sizing: border-box;
   background: ${primary};
-  color: #000;
+  color: #fff;
   font-weight: 600;
-  font-size: 8px;
+  font-size: 16px;
   border-radius: 0;
   text-decoration: none;
   font-family: 'Pretendard', sans-serif;
@@ -241,20 +253,29 @@ const ProjectsScrollSection = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 `;
 
 const ProjectsGradientOverlay = styled.div`
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse 180% 120% at 50% 50%, rgba(255, 95, 204, 0.2) 0%, transparent 55%);
+  background: radial-gradient(
+    ellipse 280% 200% at 50% 50%,
+    hsla(319, 100%, 68.6%, 0.2) 0%,
+    hsla(319, 100%, 68.6%, 0.06) 28%,
+    rgba(255, 251, 253, 0.4) 48%,
+    #FFFBFD 58%
+  );
 `;
 
 const ProjectRowAnimated = styled(motion.div)`
   display: flex;
   width: max-content;
-  gap: 12px;
-  padding: 8px 0;
+  gap: 67px;
+  padding: 0;
 `;
 
 const ProjectImage = styled.img`
@@ -334,7 +355,7 @@ function HomePage() {
   const [scrollProgress, setScrollProgress] = useState(0);
   useMotionValueEvent(smoothProgress, 'change', (v) => setScrollProgress(v ?? 0));
 
-  const scrollSpeed = 0.4;
+  const scrollSpeed = 0.18;
   const row1X = scrollProgress * -50 * scrollSpeed;
   const row2X = (1 - scrollProgress) * -50 * scrollSpeed;
   const row3X = scrollProgress * -50 * scrollSpeed;
@@ -458,18 +479,20 @@ function HomePage() {
       </AboutSection>
 
       <ProjectsSection id="projects" ref={projectsScrollRef}>
-        <FadeUp>
-          <ProjectsSlogan>
-            기술에 가치를 더하고(Apply) 더 넓은 세상으로 비상(Fly)합니다
-          </ProjectsSlogan>
-        </FadeUp>
-        <FadeUp delay={0.15}>
-          <ProjectCtaWrap>
-            <ProjectCtaOuter>
-              <ProjectCtaButton to="/projects">프로젝트 보러가기</ProjectCtaButton>
-            </ProjectCtaOuter>
-          </ProjectCtaWrap>
-        </FadeUp>
+        <ProjectsHeaderWrap>
+          <FadeUp>
+            <ProjectsSlogan>
+              {`기술에 가치를 더하고(Apply)\n더 넓은 세상으로 비상(Fly)합니다`}
+            </ProjectsSlogan>
+          </FadeUp>
+          <FadeUp delay={0.15}>
+            <ProjectCtaWrap>
+              <ProjectCtaOuter>
+                <ProjectCtaButton to="/projects">프로젝트 보러가기</ProjectCtaButton>
+              </ProjectCtaOuter>
+            </ProjectCtaWrap>
+          </FadeUp>
+        </ProjectsHeaderWrap>
         <ProjectsScrollSection>
           <ProjectsGradientOverlay />
           <ProjectRowTrack>
